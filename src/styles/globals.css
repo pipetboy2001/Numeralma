@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+:root {
+  --purple-glow: 0 0 15px rgba(147, 51, 234, 0.3);
+  --amber-glow: 0 0 15px rgba(251, 191, 36, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-gray-950 text-white;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Diseño de scrollbar para navegadores webkit */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-purple-900 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-purple-800;
+}
+
+/* Estilizado de inputs */
+input[type="text"], input[type="date"], select, textarea {
+  @apply bg-white/5 border border-purple-500/20 rounded-lg p-3 focus:border-purple-400 focus:outline-none;
+  box-shadow: 0 0 0 rgba(147, 51, 234, 0);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+input[type="text"]:focus
+
+/* Add these to your global.css file */
+
+/* Animating stars background */
+.stars {
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 160px 120px, #ddd, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 200px 90px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 300px 220px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 400px 170px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 500px 250px, #eee, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 600px 600px;
+  animation: stars-animation 180s linear infinite;
+}
+
+@keyframes stars-animation {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 600px 600px;
+  }
+}
+
+/* Mystical glowing effects */
+.glow-purple {
+  box-shadow: var(--purple-glow);
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.glow-amber {
+  box-shadow: var(--amber-glow);
+  animation: pulse-glow 4s ease-in-out infinite 1s;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Floating animation for mystical elements */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Sparkle animation for special elements */
+.sparkle {
+  position: relative;
+}
+
+.sparkle::before {
+  content: '✦';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 8px;
+  color: rgba(251, 191, 36, 0.6);
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(0.8) rotate(30deg);
+  }
+}
+
+/* Enhance focus states with cosmic glow */
+input:focus, button:focus {
+  box-shadow: var(--purple-glow);
+  transition: box-shadow 0.5s ease;
+}
+
+/* Cosmic rays on special elements */
+.cosmic-rays {
+  position: relative;
+  overflow: hidden;
+}
+
+.cosmic-rays::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  animation: cosmic-pulse 8s ease-in-out infinite;
+}
+
+@keyframes cosmic-pulse {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+
+/* Fix date input for dark mode */
+input[type="date"] {
+  color-scheme: dark;
+}
+
+/* Additional mystical cursor effects for interactive elements */
+button, 
+a, 
+.interactive {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+button:after,
+a:after,
+.interactive:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transition: width 0.4s ease, height 0.4s ease;
+  z-index: -1;
+}
+
+button:hover:after,
+a:hover:after,
+.interactive:hover:after {
+  width: 200%;
+  height: 200%;
+}
